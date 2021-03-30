@@ -10,18 +10,17 @@ import (
 var _ Pool = &Vertcoinpool{}
 
 type Vertcoinpool struct {
-	Address           string
 	LastFetchedPayout time.Time
 	LastPayout        uint64
 }
 
-func NewVertcoinpool(addr string) *Vertcoinpool {
-	return &Vertcoinpool{Address: addr}
+func NewVertcoinpool() *Vertcoinpool {
+	return &Vertcoinpool{}
 }
 
-func (p *Vertcoinpool) GetPendingPayout() uint64 {
+func (p *Vertcoinpool) GetPendingPayout(addr string) uint64 {
 	jsonPayload := map[string]interface{}{}
-	err := util.GetJson(fmt.Sprintf("http://vertcoinpool.com:4000/api/pools/verthash1/miners/%s", p.Address), &jsonPayload)
+	err := util.GetJson(fmt.Sprintf("http://vertcoinpool.com:4000/api/pools/verthash1/miners/%s"), &jsonPayload)
 	if err != nil {
 		return 0
 	}
@@ -37,16 +36,12 @@ func (p *Vertcoinpool) GetStratumUrl() string {
 	return "stratum+tcp://vtc.vertcoinpool.com:3052"
 }
 
-func (p *Vertcoinpool) GetUsername() string {
-	return p.Address
-}
-
 func (p *Vertcoinpool) GetPassword() string {
 	return "x"
 }
 
 func (p *Vertcoinpool) GetID() int {
-	return 6
+	return 7
 }
 
 func (p *Vertcoinpool) GetName() string {
@@ -59,17 +54,17 @@ func (p *Vertcoinpool) GetFee() float64 {
 	if err != nil {
 		return 0.42
 	}
-	
+
 	pools, ok := jsonPayload["pools"].([]interface{})
 	if !ok {
 		return 0.42
 	}
-	
+
 	pool, ok := pools[0].(map[string]interface{})
 	if !ok {
 		return 0.42
 	}
-	
+
 	fee, ok := pool["poolFeePercent"].(float64)
 	if !ok {
 		return 0.42
