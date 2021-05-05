@@ -7,7 +7,7 @@ This program will create a Dogecoin wallet that only you have access to.  Encryp
   - **HashCryptos.com**
     - Every 24 hours with the ability to change payout frequency to every 12 hours
   - **Zergpool.com**
-    - Every four hours on balances above 400 DOGE and 80 DOGE on Sunday late evening(CET)
+    - Every four hours on balances above 100 DOGE and 20 DOGE on Sunday late evening(CET)
     
 ### What are the fees?
 
