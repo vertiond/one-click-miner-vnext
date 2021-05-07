@@ -8,7 +8,7 @@
           <br />
           <span class="subtext">{{ $t("settings.enable_integrated_sub") }}</span>
         </p>
-        <p style="text-align: left">
+        <p v-if="poolID == 5" style="text-align: left">
           {{ $t("settings.payout") }}:
           <br />
           <select style="width: 100%" name="payout" v-model="payoutID" v-on:change="clearAddress">
