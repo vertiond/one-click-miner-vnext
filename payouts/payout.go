@@ -24,11 +24,16 @@ func GetPayouts(testnet bool) []Payout {
 	}
 	return []Payout{
 		NewDOGEPayout(),
-		//NewVTCPayout(),
-		//NewBTCPayout(),
-		//NewLTCPayout(),
-		//NewBCHPayout(),
-		//NewDASHPayout(),
+		NewVTCPayout(),
+		NewBTCPayout(),
+		NewBCHPayout(),
+		NewDASHPayout(),
+		NewDGBPayout(),
+		NewETHPayout(),
+		NewFIROPayout(),
+		NewGRSPayout(),
+		NewLTCPayout(),
+		NewRVNPayout(),
 	}
 }
 

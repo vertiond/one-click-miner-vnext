@@ -13,6 +13,7 @@ require (
 	github.com/gertjaap/verthash-go v0.0.0-20210205201258-234a3a9698d1
 	github.com/go-ping/ping v0.0.0-20210402232549-1726e5ede5b6
 	github.com/gorilla/websocket v1.4.2 // indirect
+	github.com/leaanthony/mewn v0.10.7 // indirect
 	github.com/leaanthony/slicer v1.5.0 // indirect
 	github.com/marcsauter/single v0.0.0-20181104081128-f8bf46f26ec0
 	github.com/pkg/browser v0.0.0-20210115035449-ce105d075bb4 // indirect
@@ -26,6 +27,7 @@ require (
 	github.com/tidwall/pretty v1.0.0 // indirect
 	github.com/tidwall/rtree v0.0.0-20180113144539-6cd427091e0e // indirect
 	github.com/tidwall/tinyqueue v0.0.0-20180302190814-1e39f5511563 // indirect
+	github.com/vertcoin-project/one-click-miner-vnext v0.0.0-20210503061745-7f826b572d47
 	github.com/wailsapp/wails v1.16.3
 	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
 	golang.org/x/image v0.0.0-20210220032944-ac19c3e999fb // indirect
