@@ -13,7 +13,7 @@ This program will create a Dogecoin wallet that only you have access to.  Encryp
     
 ### What are the fees?
    
-  - This program itself is free and has no fee
+  - This program and the miner it runs are completely free and have no fee
   - Zergpool.com charges a 0.5% fee while mining
   - Standard minimum Dogecoin network fee for withdrawal from built-in wallet (usually 1 DOGE)
   - HashCryptos.com charges no fees (DOGE only)
