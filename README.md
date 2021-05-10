@@ -1,6 +1,13 @@
 # Verthash One-Click Miner
 
 This program will create a Dogecoin wallet that only you have access to.  Encrypt your wallet with a password that you will not forget. It will then create the Verthash datafile and immediately begin mining Vertcoin. You will receive payouts in Dogecoin to your built-in Dogecoin wallet from the pool selected in Settings.  Additional payout currencies via Zergpool are available in Settings.  
+    
+### What are the fees?
+   
+  - This program and the miner it runs are completely free and have no fee
+  - Zergpool.com charges a 0.5% fee while mining
+  - HashCryptos.com charges no fee (DOGE only)
+  - Standard minimum Dogecoin network fee for withdrawal from built-in wallet (usually 1 DOGE)
 
 ### When do I get paid?
 
@@ -9,15 +16,6 @@ This program will create a Dogecoin wallet that only you have access to.  Encryp
     - Please check 'View Payout Information' for payout thresholds on additional currencies
   - **HashCryptos.com**
     - Every 24 hours with the ability to change payout frequency to every 12 hours (DOGE only)
-
-    
-### What are the fees?
-   
-  - This program itself is free and has no fee
-  - Zergpool.com charges a 0.5% fee while mining
-  - Standard minimum Dogecoin network fee for withdrawal from built-in wallet (usually 1 DOGE)
-  - HashCryptos.com charges no fees (DOGE only)
-
 
 ### What coins does this support?
 
