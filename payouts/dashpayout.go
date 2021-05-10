@@ -25,5 +25,5 @@ func (p *DASHPayout) GetPassword() string {
 }
 
 func (p *DASHPayout) GetCoingeckoExchange() string {
-	return "okex"
+	return "binance"
 }
