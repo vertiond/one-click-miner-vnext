@@ -12,7 +12,7 @@ This program will create a Dogecoin wallet that only you have access to.  Encryp
 ### When do I get paid?
 
   - **Zergpool.com**
-    - Every four hours on balances above 100 DOGE and 20 DOGE on Sunday late evening(CET)
+    - Every four hours on balances above 50 DOGE and 10 DOGE on Sunday late evening(CET)
     - Please check 'View Payout Information' for payout thresholds on additional currencies
   - **HashCryptos.com**
     - Every 24 hours with the ability to change payout frequency to every 12 hours (DOGE only)
