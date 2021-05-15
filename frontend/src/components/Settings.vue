@@ -8,7 +8,7 @@
           <br />
           <span class="subtext">{{ $t("settings.enable_integrated_sub") }}</span>
         </p>
-        <p v-if="poolID == 5" style="text-align: left">
+        <p v-if="poolID != 6" style="text-align: left">
           {{ $t("settings.payout") }}:
           <br />
           <select style="width: 100%" name="payout" v-model="payoutID" v-on:change="clearAddress">
@@ -18,7 +18,7 @@
           </select>
         </p>
         <!-- TODO: Improve address validation -->
-        <p v-if="poolID == 5 && payoutID != 4">
+        <p v-if="poolID != 6 && payoutID != 4">
           <input type="text" style="width:90%" class="critical-input"
             v-model="customAddress"
             v-bind:placeholder="$t('settings.customAddress')"

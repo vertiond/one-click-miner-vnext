@@ -201,10 +201,10 @@ func (m *Backend) ValidCustomAddress() bool {
 
 func (m *Backend) UseCustomPayout() bool {
 	// Use the custom payout config settings only if
-	// - Zergpool is selected
+	// - non-HashCryptos pool is selected
 	// - non-Dogecoin payout option is selected
 	// - address for payout is valid
-	if m.PoolIsZergpool() && (!m.PayoutIsDogecoin()) && m.ValidCustomAddress() {
+	if (!m.PoolIsHashCryptos()) && (!m.PayoutIsDogecoin()) && m.ValidCustomAddress() {
 		return true
 	}
 	return false
