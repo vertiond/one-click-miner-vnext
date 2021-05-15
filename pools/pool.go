@@ -22,6 +22,7 @@ func GetPools(testnet bool) []Pool {
 		//NewHashalot(),
 		//NewSuprnova(),
 		//NewP2Pool(),
+		Newzpool(),
 	}
 }
 
