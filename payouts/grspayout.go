@@ -20,10 +20,6 @@ func (p *GRSPayout) GetTicker() string {
 	return "GRS"
 }
 
-func (p *GRSPayout) GetPassword() string {
-	return "c=GRS,mc=VTC"
-}
-
 func (p *GRSPayout) GetCoingeckoExchange() string {
 	return "bittrex"
 }

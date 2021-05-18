@@ -210,13 +210,6 @@ func (m *Backend) UseCustomPayout() bool {
 	return false
 }
 
-func (m *Backend) GetCurrentMiningAddress() string {
-	if m.UseCustomPayout() {
-		return m.customAddress
-	}
-	return m.walletAddress
-}
-
 func (m *Backend) GetTestnet() bool {
 	return false // Testnet is not necessary - return false
 	//return m.getSetting("testnet")

@@ -20,10 +20,6 @@ func (p *RVNPayout) GetTicker() string {
 	return "RVN"
 }
 
-func (p *RVNPayout) GetPassword() string {
-	return "c=RVN,mc=VTC"
-}
-
 func (p *RVNPayout) GetCoingeckoExchange() string {
 	return "bittrex"
 }

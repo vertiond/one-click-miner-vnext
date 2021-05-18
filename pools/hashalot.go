@@ -36,7 +36,7 @@ func (p *Hashalot) GetStratumUrl() string {
 	return "stratum+tcp://vertcoin.hashalot.net:3950"
 }
 
-func (p *Hashalot) GetPassword() string {
+func (p *Hashalot) GetPassword(payoutTicker string) string {
 	return "x"
 }
 

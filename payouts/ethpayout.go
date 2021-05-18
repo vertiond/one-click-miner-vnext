@@ -20,10 +20,6 @@ func (p *ETHPayout) GetTicker() string {
 	return "ETH"
 }
 
-func (p *ETHPayout) GetPassword() string {
-	return "c=ETH,mc=VTC"
-}
-
 func (p *ETHPayout) GetCoingeckoExchange() string {
 	return "bittrex"
 }

@@ -38,7 +38,7 @@ func (p *HashCryptos) GetStratumUrl() string {
 	return "stratum+tcp://stratum3.hashcryptos.com:9991"
 }
 
-func (p *HashCryptos) GetPassword() string {
+func (p *HashCryptos) GetPassword(payoutTicker string) string {
 	return "x"
 }
 

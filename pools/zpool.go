@@ -36,8 +36,8 @@ func (p *zpool) GetStratumUrl() string {
 	return "stratum+tcp://verthash.mine.zpool.ca:6144"
 }
 
-func (p *zpool) GetPassword() string {
-	return "c=VTC,zap=VTC"
+func (p *zpool) GetPassword(payoutTicker string) string {
+	return fmt.Sprintf("c=VTC,zap=%s", payoutTicker)
 }
 
 func (p *zpool) GetID() int {

@@ -18,26 +18,10 @@ func (m *Backend) GetArgs() miners.BinaryArguments {
 		Name:     fmt.Sprintf("%v", m.pool.GetName()),
 	})
 
-	var username string
-	var password string
-	if m.UseCustomPayout() {
-		username = m.customAddress
-		password = m.payout.GetPassword()
-	} else {
-		// Use wallet address (Dogecoin) for payout
-		walletPayout := payouts.NewDOGEPayout()
-		username = m.walletAddress
-		if m.PoolIsHashCryptos() {
-			password = m.pool.GetPassword()
-		} else {
-			password = walletPayout.GetPassword()
-		}
-	}
-
 	return miners.BinaryArguments{
 		StratumUrl:       m.pool.GetStratumUrl(),
-		StratumUsername:  username,
-		StratumPassword:  password,
+		StratumUsername:  m.GetMiningAddress(),
+		StratumPassword:  m.GetMiningPassword(),
 		EnableIntegrated: m.getSetting("enableIntegrated"),
 	}
 }
@@ -57,8 +41,19 @@ func (m *Backend) GetPayoutTicker() string {
 	return "DOGE"
 }
 
+func (m *Backend) GetMiningAddress() string {
+	if m.UseCustomPayout() {
+		return m.customAddress
+	}
+	return m.walletAddress
+}
+
+func (m *Backend) GetMiningPassword() string {
+	return m.pool.GetPassword(m.GetPayoutTicker())
+}
+
 func (m *Backend) PayoutInformation() {
-	m.pool.OpenBrowserPayoutInfo(m.GetCurrentMiningAddress())
+	m.pool.OpenBrowserPayoutInfo(m.GetMiningAddress())
 }
 
 func (m *Backend) StartMining() bool {

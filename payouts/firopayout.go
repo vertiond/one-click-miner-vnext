@@ -20,10 +20,6 @@ func (p *FIROPayout) GetTicker() string {
 	return "FIRO"
 }
 
-func (p *FIROPayout) GetPassword() string {
-	return "c=FIRO,mc=VTC"
-}
-
 func (p *FIROPayout) GetCoingeckoExchange() string {
 	return "bittrex"
 }

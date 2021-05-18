@@ -52,7 +52,7 @@ func (p *Suprnova) GetStratumUrl() string {
 	return "stratum+tcp://vtc.suprnova.cc:1776"
 }
 
-func (p *Suprnova) GetPassword() string {
+func (p *Suprnova) GetPassword(payoutTicker string) string {
 	return "x"
 }
 

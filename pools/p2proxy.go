@@ -34,7 +34,7 @@ func (p *P2Proxy) GetStratumUrl() string {
 	return networks.Active.P2ProxyStratum
 }
 
-func (p *P2Proxy) GetPassword() string {
+func (p *P2Proxy) GetPassword(payoutTicker string) string {
 	return "x"
 }
 

@@ -20,10 +20,6 @@ func (p *LTCPayout) GetTicker() string {
 	return "LTC"
 }
 
-func (p *LTCPayout) GetPassword() string {
-	return "c=LTC,mc=VTC"
-}
-
 func (p *LTCPayout) GetCoingeckoExchange() string {
 	return "bittrex"
 }

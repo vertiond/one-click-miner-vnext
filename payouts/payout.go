@@ -12,7 +12,6 @@ type Payout interface {
 	GetID() int
 	GetName() string
 	GetTicker() string
-	GetPassword() string
 	GetCoingeckoExchange() string
 }
 

@@ -3,7 +3,7 @@ package pools
 type Pool interface {
 	GetPendingPayout(addr string) uint64
 	GetStratumUrl() string
-	GetPassword() string
+	GetPassword(payoutTicker string) string
 	GetName() string
 	GetID() int
 	GetFee() float64
