@@ -33,6 +33,7 @@ func GetPayouts(testnet bool) []Payout {
 		NewFIROPayout(),
 		NewGRSPayout(),
 		NewLTCPayout(),
+		NewXMRPayout(),
 		NewRVNPayout(),
 	}
 }
