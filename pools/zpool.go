@@ -37,7 +37,7 @@ func (p *zpool) GetStratumUrl() string {
 }
 
 func (p *zpool) GetPassword(payoutTicker string) string {
-	return fmt.Sprintf("c=VTC,zap=%s", payoutTicker)
+	return fmt.Sprintf("c=%s,zap=VTC", payoutTicker)
 }
 
 func (p *zpool) GetID() int {
