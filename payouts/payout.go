@@ -15,37 +15,27 @@ type Payout interface {
 	GetCoingeckoExchange() string
 }
 
-func GetPayouts(testnet bool) []Payout {
-	if testnet {
-		return []Payout{
-			NewVTCPayout(),
-		}
-	}
-	return []Payout{
-		NewDOGEPayout(),
-		NewVTCPayout(),
-		NewBTCPayout(),
-		NewBCHPayout(),
-		NewDASHPayout(),
-		NewDGBPayout(),
-		NewETHPayout(),
-		NewFIROPayout(),
-		NewGRSPayout(),
-		NewLTCPayout(),
-		NewXMRPayout(),
-		NewRVNPayout(),
-	}
-}
-
-func GetPayout(payout int, testnet bool) Payout {
-	payouts := GetPayouts(testnet)
-	for _, p := range payouts {
-		if p.GetID() == payout {
-			return p
-		}
-	}
-	return payouts[0]
-}
+// func GetPayouts(testnet bool) []Payout {
+// 	if testnet {
+// 		return []Payout{
+// 			NewVTCPayout(),
+// 		}
+// 	}
+// 	return []Payout{
+// 		NewDOGEPayout(),
+// 		NewVTCPayout(),
+// 		NewBTCPayout(),
+// 		NewBCHPayout(),
+// 		NewDASHPayout(),
+// 		NewDGBPayout(),
+// 		NewETHPayout(),
+// 		NewFIROPayout(),
+// 		NewGRSPayout(),
+// 		NewLTCPayout(),
+// 		NewXMRPayout(),
+// 		NewRVNPayout(),
+// 	}
+// }
 
 func GetBitcoinPerUnitCoin(coinName string, coinTicker string, coingeckoExchange string) float64 {
 	if coinTicker == "DOGE" {

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/vertiond/verthash-one-click-miner/payouts"
 	"github.com/vertiond/verthash-one-click-miner/util"
 )
 
@@ -16,6 +17,28 @@ type Suprnova struct {
 
 func NewSuprnova() *Suprnova {
 	return &Suprnova{}
+}
+
+func (p *Suprnova) GetPayouts(testnet bool) []payouts.Payout {
+	if testnet {
+		return []payouts.Payout{
+			payouts.NewVTCPayout(),
+		}
+	}
+	return []payouts.Payout{
+		payouts.NewDOGEPayout(),
+		payouts.NewVTCPayout(),
+		payouts.NewBTCPayout(),
+		payouts.NewBCHPayout(),
+		payouts.NewDASHPayout(),
+		payouts.NewDGBPayout(),
+		payouts.NewETHPayout(),
+		payouts.NewFIROPayout(),
+		payouts.NewGRSPayout(),
+		payouts.NewLTCPayout(),
+		payouts.NewXMRPayout(),
+		payouts.NewRVNPayout(),
+	}
 }
 
 func (p *Suprnova) GetPendingPayout(addr string) uint64 {

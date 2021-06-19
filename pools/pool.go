@@ -1,6 +1,11 @@
 package pools
 
+import (
+	"github.com/vertiond/verthash-one-click-miner/payouts"
+)
+
 type Pool interface {
+	GetPayouts(testnet bool) []payouts.Payout
 	GetPendingPayout(addr string) uint64
 	GetStratumUrl() string
 	GetPassword(payoutTicker string) string
@@ -26,12 +31,22 @@ func GetPools(testnet bool) []Pool {
 	}
 }
 
-func GetPool(pool int, testnet bool) Pool {
+func GetPool(poolID int, testnet bool) Pool {
 	pools := GetPools(testnet)
 	for _, p := range pools {
-		if p.GetID() == pool {
+		if p.GetID() == poolID {
 			return p
 		}
 	}
 	return pools[0]
+}
+
+func GetPayout(pool Pool, payoutID int, testnet bool) payouts.Payout {
+	payouts := pool.GetPayouts(testnet)
+	for _, p := range payouts {
+		if p.GetID() == payoutID {
+			return p
+		}
+	}
+	return payouts[0]
 }

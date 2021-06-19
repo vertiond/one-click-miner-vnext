@@ -9,7 +9,6 @@ import (
 	"github.com/tidwall/buntdb"
 	"github.com/vertiond/verthash-one-click-miner/logging"
 	"github.com/vertiond/verthash-one-click-miner/networks"
-	"github.com/vertiond/verthash-one-click-miner/payouts"
 	"github.com/vertiond/verthash-one-click-miner/pools"
 	"github.com/vertiond/verthash-one-click-miner/tracking"
 	"github.com/vertiond/verthash-one-click-miner/util"
@@ -153,15 +152,23 @@ type PayoutChoice struct {
 	Name string `json:"name"`
 }
 
-func (m *Backend) GetPayouts() []PayoutChoice {
+func (m *Backend) GetPayouts(selectedPoolID int) []PayoutChoice {
 	pc := make([]PayoutChoice, 0)
-	for _, p := range payouts.GetPayouts(m.GetTestnet()) {
+	selectedPool := pools.GetPool(selectedPoolID, m.GetTestnet())
+	logging.Debugf("Selected pool: %s\n", selectedPool.GetName())
+	for _, p := range selectedPool.GetPayouts(m.GetTestnet()) {
 		pc = append(pc, PayoutChoice{
 			ID:   p.GetID(),
 			Name: p.GetName(),
 		})
 	}
 	return pc
+}
+
+func (m *Backend) GetKickbackPayoutID(selectedPoolID int, selectedPayoutID int) int {
+	selectedPool := pools.GetPool(selectedPoolID, m.GetTestnet())
+	selectedPayout := pools.GetPayout(selectedPool, selectedPayoutID, m.GetTestnet())
+	return selectedPayout.GetID()
 }
 
 func (m *Backend) GetCustomAddress() string {
