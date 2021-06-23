@@ -118,13 +118,13 @@ func (m *Backend) StartMining() bool {
 				// Don't refresh this every time since we refresh it every second
 				// and this pulls from Insight. Every 600s is fine (~every 4 blocks)
 				nhr = util.GetNetHash()
-				if myPayout.GetName() != vtcPayout.GetName() {
-					unitVtcPerBtc = payouts.GetBitcoinPerUnitCoin(vtcPayout.GetName(), vtcPayout.GetTicker(), vtcPayout.GetCoingeckoExchange())
-					if myPayout.GetName() == btcPayout.GetName() {
+				if myPayout.GetID() != vtcPayout.GetID() {
+					unitVtcPerBtc = payouts.GetBitcoinPerUnitCoin(vtcPayout.GetCoingeckoCoinID(), vtcPayout.GetTicker(), vtcPayout.GetCoingeckoExchange())
+					if myPayout.GetID() == btcPayout.GetID() {
 						unitPayoutCoinPerBtc = 1
 					} else {
 						time.Sleep(750 * time.Millisecond) // Put time between API calls
-						unitPayoutCoinPerBtc = payouts.GetBitcoinPerUnitCoin(myPayout.GetName(), myPayout.GetTicker(), myPayout.GetCoingeckoExchange())
+						unitPayoutCoinPerBtc = payouts.GetBitcoinPerUnitCoin(myPayout.GetCoingeckoCoinID(), myPayout.GetTicker(), myPayout.GetCoingeckoExchange())
 					}
 					logging.Infof(fmt.Sprintf("Payout exchange rate: VTC/BTC=%0.10f, %s/BTC=%0.10f", unitVtcPerBtc, myPayout.GetTicker(), unitPayoutCoinPerBtc))
 				}
@@ -159,7 +159,7 @@ func (m *Backend) StartMining() bool {
 
 			// Convert average earning from Vertcoin to selected payout coin
 			avgEarningTicker := "VTC"
-			if myPayout.GetName() != vtcPayout.GetName() {
+			if myPayout.GetID() != vtcPayout.GetID() {
 				if unitVtcPerBtc != 0 && unitPayoutCoinPerBtc != 0 {
 					avgEarningTicker = myPayout.GetTicker()
 					avgEarning = avgEarning * unitVtcPerBtc / unitPayoutCoinPerBtc

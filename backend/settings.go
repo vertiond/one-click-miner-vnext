@@ -159,7 +159,7 @@ func (m *Backend) GetPayouts(selectedPoolID int) []PayoutChoice {
 	for _, p := range selectedPool.GetPayouts(m.GetTestnet()) {
 		pc = append(pc, PayoutChoice{
 			ID:   p.GetID(),
-			Name: p.GetName(),
+			Name: p.GetDisplayName(),
 		})
 	}
 	return pc

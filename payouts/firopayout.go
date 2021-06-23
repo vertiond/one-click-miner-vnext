@@ -12,7 +12,7 @@ func (p *FIROPayout) GetID() int {
 	return 11
 }
 
-func (p *FIROPayout) GetName() string {
+func (p *FIROPayout) GetDisplayName() string {
 	return "Zcoin"
 }
 
@@ -22,4 +22,8 @@ func (p *FIROPayout) GetTicker() string {
 
 func (p *FIROPayout) GetCoingeckoExchange() string {
 	return "bittrex"
+}
+
+func (p *FIROPayout) GetCoingeckoCoinID() string {
+	return "zcoin"
 }

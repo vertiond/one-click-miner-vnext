@@ -12,7 +12,7 @@ func (p *VTCPayout) GetID() int {
 	return 1
 }
 
-func (p *VTCPayout) GetName() string {
+func (p *VTCPayout) GetDisplayName() string {
 	return "Vertcoin"
 }
 
@@ -22,4 +22,8 @@ func (p *VTCPayout) GetTicker() string {
 
 func (p *VTCPayout) GetCoingeckoExchange() string {
 	return "bittrex"
+}
+
+func (p *VTCPayout) GetCoingeckoCoinID() string {
+	return "vertcoin"
 }

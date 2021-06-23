@@ -12,7 +12,7 @@ func (p *DASHPayout) GetID() int {
 	return 6
 }
 
-func (p *DASHPayout) GetName() string {
+func (p *DASHPayout) GetDisplayName() string {
 	return "Dash"
 }
 
@@ -22,4 +22,8 @@ func (p *DASHPayout) GetTicker() string {
 
 func (p *DASHPayout) GetCoingeckoExchange() string {
 	return "binance"
+}
+
+func (p *DASHPayout) GetCoingeckoCoinID() string {
+	return "dash"
 }

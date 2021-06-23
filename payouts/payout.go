@@ -10,9 +10,10 @@ import (
 
 type Payout interface {
 	GetID() int
-	GetName() string
+	GetDisplayName() string
 	GetTicker() string
 	GetCoingeckoExchange() string
+	GetCoingeckoCoinID() string
 }
 
 // func GetPayouts(testnet bool) []Payout {
@@ -37,16 +38,16 @@ type Payout interface {
 // 	}
 // }
 
-func GetBitcoinPerUnitCoin(coinName string, coinTicker string, coingeckoExchange string) float64 {
+func GetBitcoinPerUnitCoin(coinID string, coinTicker string, exchange string) float64 {
 	if coinTicker == "DOGE" {
 		return GetBitcoinPerUnitDOGE()
 	}
 
 	jsonPayload := map[string]interface{}{}
-	err := util.GetJson(fmt.Sprintf(
-		"https://api.coingecko.com/api/v3/exchanges/%s/tickers?coin_ids=%s",
-		coingeckoExchange, strings.ReplaceAll(strings.ToLower(coinName), " ", "-")),
-		&jsonPayload)
+	err := util.GetJson(
+		fmt.Sprintf("https://api.coingecko.com/api/v3/exchanges/%s/tickers?coin_ids=%s", exchange, coinID),
+		&jsonPayload
+	)
 	if err != nil {
 		return 0.0
 	}
@@ -113,7 +114,7 @@ func GetBitcoinPerUnitDOGE() float64 {
 	return result
 }
 
-//func GetBitcoinPerUnitCoin(coinName string, coinTicker string, coingeckoExchange string) float64 {
+//func GetBitcoinPerUnitCoin(coinID string, coinTicker string, exchange string) float64 {
 //	jsonPayload := map[string]interface{}{}
 //	err := util.GetJson(fmt.Sprintf(
 //		"https://api.cryptonator.com/api/ticker/%s-btc",
