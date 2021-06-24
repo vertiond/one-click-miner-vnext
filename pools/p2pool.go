@@ -16,6 +16,7 @@ type P2Pool struct {
 	LastFetchedPayout time.Time
 	LastPayout        uint64
 	LastFetchedFee    time.Time
+	LastFee           float64
 }
 
 func NewP2Pool() *P2Pool {
@@ -79,8 +80,9 @@ func (p *P2Pool) GetFee() (fee float64) {
 		}
 		fee += donationFee
 		p.LastFetchedFee = time.Now()
+		p.LastFee = float64(fee)
 	}
-	return fee
+	return p.LastFee
 }
 
 func (p *P2Pool) OpenBrowserPayoutInfo(addr string) {
