@@ -3,7 +3,6 @@ package payouts
 import (
 	"fmt"
 	"strconv"
-	"strings"
 
 	"github.com/vertiond/verthash-one-click-miner/util"
 )
