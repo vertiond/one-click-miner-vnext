@@ -1,6 +1,6 @@
 {
   "name": "verthash_one_click_miner",
-  "author": "Gert-Jaap Glasbergen<gertjaap@gertjaap.nl>",
+  "author": "vertion<vertion@protonmail.com>",
   "private": true,
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
