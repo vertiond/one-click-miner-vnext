@@ -23,11 +23,11 @@ func GetPools(testnet bool) []Pool {
 	}
 	return []Pool{
 		NewZergpool(),
+		Newzpool(),
 		NewHashCryptos(),
 		//NewHashalot(),
 		//NewSuprnova(),
 		//NewP2Pool(),
-		Newzpool(),
 	}
 }
 

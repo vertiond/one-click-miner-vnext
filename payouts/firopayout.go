@@ -13,7 +13,7 @@ func (p *FIROPayout) GetID() int {
 }
 
 func (p *FIROPayout) GetDisplayName() string {
-	return "Zcoin"
+	return "Firo"
 }
 
 func (p *FIROPayout) GetTicker() string {

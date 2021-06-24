@@ -32,12 +32,16 @@ func (p *zpool) GetPayouts(testnet bool) []payouts.Payout {
 		payouts.NewBCHPayout(),
 		payouts.NewDASHPayout(),
 		payouts.NewDGBPayout(),
-		payouts.NewETHPayout(),
-		payouts.NewFIROPayout(),
+		payouts.NewFLUXPayout(),
 		payouts.NewGRSPayout(),
+		payouts.NewZENPayout(),
+		payouts.NewKMDPayout(),
+		payouts.NewLBCPayout(),
 		payouts.NewLTCPayout(),
-		payouts.NewXMRPayout(),
-		payouts.NewRVNPayout(),
+		payouts.NewPPCPayout(),
+		payouts.NewRVCPayout(),
+		payouts.NewXVGPayout(),
+		payouts.NewZECPayout(),
 	}
 }
 

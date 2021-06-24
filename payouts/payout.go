@@ -46,8 +46,7 @@ func GetBitcoinPerUnitCoin(coinID string, coinTicker string, exchange string) fl
 	jsonPayload := map[string]interface{}{}
 	err := util.GetJson(
 		fmt.Sprintf("https://api.coingecko.com/api/v3/exchanges/%s/tickers?coin_ids=%s", exchange, coinID),
-		&jsonPayload
-	)
+		&jsonPayload)
 	if err != nil {
 		return 0.0
 	}
