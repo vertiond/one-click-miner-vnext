@@ -5,23 +5,45 @@ import (
 	"time"
 
 	"github.com/vertcoin-project/one-click-miner-vnext/util"
+	"github.com/vertiond/verthash-one-click-miner/payouts"
 )
 
 var _ Pool = &Acidpool{}
 
 type Acidpool struct {
-	Address           string
 	LastFetchedPayout time.Time
 	LastPayout        uint64
 }
 
-func NewAcidpool(addr string) *Acidpool {
-	return &Acidpool{Address: addr}
+func NewHAcidpool() *Acidpool {
+	return &Acidpool{}
 }
 
-func (p *Acidpool) GetPendingPayout() uint64 {
+func (p *Acidpool) GetPayouts(testnet bool) []payouts.Payout {
+	if testnet {
+		return []payouts.Payout{
+			payouts.NewVTCPayout(),
+		}
+	}
+	return []payouts.Payout{
+		payouts.NewDOGEPayout(),
+		payouts.NewVTCPayout(),
+		payouts.NewBTCPayout(),
+		payouts.NewBCHPayout(),
+		payouts.NewDASHPayout(),
+		payouts.NewDGBPayout(),
+		payouts.NewETHPayout(),
+		payouts.NewFIROPayout(),
+		payouts.NewGRSPayout(),
+		payouts.NewLTCPayout(),
+		payouts.NewXMRPayout(),
+		payouts.NewRVNPayout(),
+	}
+}
+
+func (p *Acidpool) GetPendingPayout(addr string) uint64 {
 	jsonPayload := map[string]interface{}{}
-	err := util.GetJson(fmt.Sprintf("http://acidpool.xyz:4000/api/pools/vtc1/miners/%s", p.Address), &jsonPayload)
+	err := util.GetJson(fmt.Sprintf("http://acidpool.xyz:4000/api/pools/vtc1/miners/%s", addr), &jsonPayload)
 	if err != nil {
 		return 0
 	}
@@ -37,11 +59,7 @@ func (p *Acidpool) GetStratumUrl() string {
 	return "stratum+tcp://vtc.acidpool.co.uk:3052"
 }
 
-func (p *Acidpool) GetUsername() string {
-	return p.Address
-}
-
-func (p *Acidpool) GetPassword() string {
+func (p *Acidpool) GetPassword(payoutTicker string) string {
 	return "x"
 }
 

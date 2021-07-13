@@ -7,6 +7,7 @@ import (
 	"github.com/vertiond/verthash-one-click-miner/logging"
 
 	"github.com/vertiond/verthash-one-click-miner/payouts"
+	"github.com/vertiond/verthash-one-click-miner/ping"
 	"github.com/vertiond/verthash-one-click-miner/util"
 )
 

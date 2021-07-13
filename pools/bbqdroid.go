@@ -5,23 +5,45 @@ import (
 	"time"
 
 	"github.com/vertcoin-project/one-click-miner-vnext/util"
+	"github.com/vertiond/verthash-one-click-miner/payouts"
 )
 
 var _ Pool = &BBQDroid{}
 
 type BBQDroid struct {
-	Address           string
 	LastFetchedPayout time.Time
 	LastPayout        uint64
 }
 
-func NewBBQDroid(addr string) *BBQDroid {
-	return &BBQDroid{Address: addr}
+func NewBBQDroid() *BBQDroid {
+	return &BBQDroid{}
 }
 
-func (p *BBQDroid) GetPendingPayout() uint64 {
+func (p *BBQDroid) GetPayouts(testnet bool) []payouts.Payout {
+	if testnet {
+		return []payouts.Payout{
+			payouts.NewVTCPayout(),
+		}
+	}
+	return []payouts.Payout{
+		payouts.NewDOGEPayout(),
+		payouts.NewVTCPayout(),
+		payouts.NewBTCPayout(),
+		payouts.NewBCHPayout(),
+		payouts.NewDASHPayout(),
+		payouts.NewDGBPayout(),
+		payouts.NewETHPayout(),
+		payouts.NewFIROPayout(),
+		payouts.NewGRSPayout(),
+		payouts.NewLTCPayout(),
+		payouts.NewXMRPayout(),
+		payouts.NewRVNPayout(),
+	}
+}
+
+func (p *BBQDroid) GetPendingPayout(addr string) uint64 {
 	jsonPayload := map[string]interface{}{}
-	err := util.GetJson(fmt.Sprintf("https://miningapi.bbqdroid.org/api/pools/vertcoin/miners/%s", p.Address), &jsonPayload)
+	err := util.GetJson(fmt.Sprintf("https://miningapi.bbqdroid.org/api/pools/vertcoin/miners/%s", addr), &jsonPayload)
 	if err != nil {
 		return 0
 	}
@@ -37,11 +59,7 @@ func (p *BBQDroid) GetStratumUrl() string {
 	return "stratum+tcp://bbqdroid.org:10001"
 }
 
-func (p *BBQDroid) GetUsername() string {
-	return p.Address
-}
-
-func (p *BBQDroid) GetPassword() string {
+func (p *BBQDroid) GetPassword(payoutTicker string) string {
 	return "x"
 }
 
