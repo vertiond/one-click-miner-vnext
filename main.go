@@ -8,6 +8,7 @@ import (
 	"runtime/debug"
 
 	_ "embed"
+
 	"github.com/marcsauter/single"
 	"github.com/vertiond/verthash-one-click-miner/backend"
 	"github.com/vertiond/verthash-one-click-miner/logging"
@@ -87,6 +88,7 @@ func main() {
 		panic(err)
 	}
 	networks.SetNetwork(backend.GetTestnet())
+	ping.GetSelectedNode(backend.GetTestnet())
 
 	backend.ResetWalletAddress()
 	backend.ResetPool()

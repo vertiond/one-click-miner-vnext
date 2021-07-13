@@ -28,6 +28,8 @@ func GetPools(testnet bool) []Pool {
 		//NewHashalot(),
 		//NewSuprnova(),
 		//NewP2Pool(),
+		//NewBBQDroid(addr),
+		//NewAcidpool(addr),
 	}
 }
 
